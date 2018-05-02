@@ -6,7 +6,7 @@
   @return unquote($value);
 }
 
-$shadows-small: multiple-box-shadow(500);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big: multiple-box-shadow(100);
+$shadows-small: multiple-box-shadow(200);
+$shadows-medium: multiple-box-shadow(50);
+$shadows-big: multiple-box-shadow(10);
 

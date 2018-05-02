@@ -25,6 +25,11 @@
 .navbar {
   border-radius: 0 !important;
   margin: 0;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //width: 100%;
+  //height: 50px;
   @include breakpoint('smedium') {
     overflow-x: hidden;
   }
