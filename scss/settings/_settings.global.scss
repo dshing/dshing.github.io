@@ -1,0 +1,32 @@
+// Global (Site Wide) Styles
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $text;
+  font-family: $primaryFont;
+  font-size: 16px;
+}
+
+img {
+  height: auto;
+  width: auto;
+  vertical-align: middle;
+  max-width: 100%;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

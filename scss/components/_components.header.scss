@@ -1,0 +1,82 @@
+.main-header {
+  position: relative;
+
+  &:before {
+    @include breakpoint('smedium'){
+      position: absolute;
+      left: calc(100% - 0px);
+      height: 100%;
+      width: 100vw;
+      content: '';
+      transform: skew(-20deg);
+      //background-color: $mortar;
+      //z-index: -1;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5b+0,262626+100 */
+      /*background: $mortar; !* Old browsers *!
+      background: -moz-linear-gradient(top, $mortar 0%, #262626 100%); !* FF3.6-15 *!
+      background: -webkit-linear-gradient(top, $mortar 0%,#262626 100%); !* Chrome10-25,Safari5.1-6 *!
+      background: linear-gradient(to bottom, $mortar 0%,#262626 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#262626',GradientType=0 ); !* IE6-9 *!*/
+
+    }
+  }
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin: 0;
+  background-color: $mineshaft;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: $darkerblue;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //width: 100%;
+  //height: 50px;
+  @include breakpoint('smedium') {
+    overflow-x: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+  }
+}
+
+.nav-item {
+  display: inline-block;
+  background: $skynight;
+  @include breakpoint('smedium') {
+   /* background: $mortar; !* Old browsers *!
+    background: -moz-linear-gradient(top, $mortar 0%, #262626 100%); !* FF3.6-15 *!
+    background: -webkit-linear-gradient(top, $mortar 0%,#262626 100%); !* Chrome10-25,Safari5.1-6 *!
+    background: linear-gradient(to bottom, $mortar 0%,#262626 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#262626',GradientType=0 ); !* IE6-9 *!*/
+    transform: skew(-20deg);
+    transition: background 0.3s ease-in-out;
+
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: $darkerblue;
+    &:hover {
+      background: $deepblue;
+      .nav-link {
+        text-decoration: none;
+        color: $evenligherblue;
+        padding: 15px 40px;
+      }
+    }
+    &:nth-of-type(1) {
+      border-width: 0 0 0 1px;
+    }
+  }
+}
+.nav-link {
+  display: inline-block;
+  text-transform: uppercase;
+  color: $white;
+  @include breakpoint('smedium'){
+    transition: all 0.3s ease-in-out;
+    padding: 15px 30px;
+    transform: skew(20deg);
+  }
+}

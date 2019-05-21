@@ -1,0 +1,10 @@
+.main-footer {
+  background-color: $mineshaft;
+  hr {
+    border-color: $darkerblue;
+  }
+
+  @include breakpoint('mlarge') {
+  }
+
+}
