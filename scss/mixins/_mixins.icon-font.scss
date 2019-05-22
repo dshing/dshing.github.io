@@ -1,0 +1,28 @@
+// Icon Font Mixin
+
+$icons: (
+  'icn-link': ( '\e000' ),
+  'icn-linkbox': ( '\e001' ),
+  'icn-gitbox': ( '\e002' ),
+  'icn-git': ( '\e003' ),
+);
+
+// Creating the mixin
+@mixin icon($name) {
+  @if map-has-key($icons, $name) {
+    content: inspect(map-get($icons, $name));
+    font-family: $iconFont;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    @warn "Couldn't find a your icon named `#{$name}`.";
+  }
+}
+
+// Example Usage - @include icon(search);

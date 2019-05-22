@@ -13,6 +13,8 @@
 
 @import 'mixins/mixins.breakpoint';
 @import 'mixins/mixins.clearfix';
+@import 'mixins/mixins.hidden';
+@import 'mixins/mixins.icon-font';
 
 // Functions
 
@@ -21,6 +23,7 @@
 // Base
 
 @import 'base/base.typography';
+@import 'base/base.animations';
 
 
 // Components

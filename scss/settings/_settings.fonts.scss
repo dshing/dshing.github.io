@@ -2,5 +2,16 @@
 $primaryFont: 'Montserrat', sans-serif;
 $secondaryFont: 'Inconsolata', monospace;
 
+@font-face {
+  font-family: 'links';
+  src:url('../fonts/links.eot');
+  src:url('../fonts/links.eot?#iefix') format("embedded-opentype"),
+  url("../fonts/links.woff") format("woff"),
+  url("../fonts/links.ttf") format("truetype"),
+  url("../fonts/links.svg#links") format("svg");
+  font-weight: normal;
+  font-style: normal;
 
+}
 
+$iconFont: 'links';
