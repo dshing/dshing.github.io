@@ -11,13 +11,24 @@
   background: -webkit-radial-gradient(bottom, ellipse cover, $tangaroa 0%,$blackpearl 100%); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at bottom, $tangaroa 0%,$blackpearl 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b2735', endColorstr='#090a0f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  -webkit-animation: spacePulse 15s ease infinite;
+  -moz-animation: spacePulse 15s ease infinite;
+  animation: spacePulse 15s ease infinite;
+  background-position: bottom;
+  background-repeat: no-repeat;
   @include clearfix();
 
+  @include breakpoint('smedium') {
+    height: 550px;
+  }
   @include breakpoint('mlarge') {
     height: 850px;
   }
   &__title-container {
-
+    text-align: center;
+    @include breakpoint('smedium') {
+      text-align: left;
+    }
   }
 
   #stars-1 {
@@ -25,23 +36,30 @@
     height: 1px;
     background: transparent;
     box-shadow: $shadows-small;
+    position: fixed;
+
   }
   #stars-2 {
     width: 2px;
     height: 2px;
     background: transparent;
     box-shadow: $shadows-medium;
+    position: fixed;
   }
   #stars-3 {
     width: 3px;
     height: 3px;
     background: transparent;
     box-shadow: $shadows-big;
+    position: fixed;
   }
 
 
   .container {
     height: 100%;
+    @include breakpoint('smedium') {
+      padding-top: 80px;
+    }
     @include breakpoint('mlarge') {
       padding-top: 100px;
     }
@@ -120,106 +138,44 @@
       background: linear-gradient(#9d8776 20%, #564941 60%, rgba(0,0,0,0) 100%);
     }
   }
-  &__cityscape {
-    visibility: hidden;
-  }
-  &__biru {
-    z-index: 1;
+  &__starfall {
     position: absolute;
-    bottom: 0;
-    width: 6%;
-
-    &:before{
-      content: "";
+    z-index: 10;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: skew(-66deg);
+    overflow: hidden;
+    &::after{
+      content: '';
       display: block;
-      padding-top: 100%;
+      position: absolute;
+      height: 15vh;
+      width: 100%;
+      top: -50%;
+      left: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+      animation: starFall 20s 10s infinite;
+      -webkit-animation: starFall 20s 10s infinite;
+      -moz-animation: starFall 20s 10s infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
     }
-    &--thin {
-      width: 4%;
-      background-color: #363636;
-
-    }
-    &--med {
-      width: 5%;
-      background-color: #494949;
-    }
-    &--max {
-      width: 6%;
-      background-color: #5c5c5c;
-    }
-    &--1 {
-      background-color: #292929;
-      height: 11%;
-      left: 30%;
-    }
-    &--2 {
-      background-color: #292929;
-      height: 11%;
-      left: 60%;
-    }
-    &--3 {
-      height: 10%;
-      left: 35%;
-    }
-    &--4 {
-      height: 14%;
-      left: 60%;
-    }
-    &--5 {
-      height: 15%;
-      left: 20%;
-    }
-    &--6 {
-      height: 13%;
-      left: 40%;
-    }
-    &--7 {
-      height: 12%;
-      left: 20%;
-    }
-    &--8 {
-      height: 13%;
-      left: 33%;
-    }
-    &--9 {
-      height: 12%;
-      left: 83%;
-    }
-    &--10 {
-      height: 22%;
-      left: 55%;
-    }
-    &--11 {
-      height: 18%;
-      left: 65%;
-    }
-    &--12 {
-      height: 23%;
-      left: 32%;
-    }
-    &--13 {
-      height: 30%;
-      left: 44%;
-    }
-    &--14 {
-      height: 22%;
-      left: 50%;
-    }
-
   }
-
   &__container {
     position: relative;
     height: 100%;
   }
   &__cta {
     @include clearfix();
-    z-index: 10;
-    @include breakpoint('mlarge') {
+    z-index: 12;
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    @include breakpoint('smedium') {
       position: absolute;
-
-      /*right: 0;
-      height: 100%;*/
+      max-width: none;
       display: flex;
       display: -ms-flexbox;
       -ms-flex-wrap: wrap;
@@ -229,9 +185,12 @@
       width: 100%;
       bottom: 50px;
     }
+    @include breakpoint('mlarge') {
+
+    }
   }
   &__wrapper {
-    @include breakpoint('mlarge') {
+    @include breakpoint('smedium') {
       padding: 0 20px;
       width: (100% / 3);
       -ms-flex-direction: column;
@@ -248,14 +207,14 @@
     }
   }
   &__block {
-    background-color: rgba($mineshaft, 0.9);
+    background-color: rgba($mineshaft, 0.7);
     border: 1px solid $darkerblue;
     padding: 12px;
     margin: 12px 0;
     -webkit-box-shadow: 0 0 5px 0 rgba($darkerblue,0.7);
     -moz-box-shadow: 0 0 5px 0 rgba($darkerblue,0.7);
     box-shadow: 0 0 5px 0 rgba($darkerblue,0.7);
-    @include breakpoint('mlarge') {
+    @include breakpoint('smedium') {
       //position: absolute;
       padding: 20px;
       -ms-flex: 1 0 auto;
@@ -266,7 +225,8 @@
 }
 
 .main-about {
-
+  position: relative;
+  z-index: 10;
   background-color: $mineshaft;
   border-width: 1px 0 0 0;
   border-style: solid;
@@ -278,14 +238,57 @@
     text-align: center;
     padding: 80px 0;
   }
-  &__left {
-    @include breakpoint('mlarge') {
-      float: left;
+  .container {
+    @include breakpoint('tiny') {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    @include breakpoint('smedium') {
+      padding-right: 15px;
+      padding-left: 15px;
     }
   }
-  &__right {
-    @include breakpoint('mlarge') {
-      float: right;
+  &__links {
+    text-align: center;
+    margin-top: 12px;
+    @include breakpoint('smedium') {
+      margin-top: 20px;
+      text-align: left;
     }
+
+  }
+  &__link {
+    display: inline-block;
+    margin: 0 7px;
+    &:hover {
+      text-decoration: none;
+      &:after {
+        text-decoration: none;
+        color: $bluenofnight;
+      }
+    }
+    &:after {
+      color: $white;
+      font-size: 2em;
+    }
+    @include breakpoint('smedium') {
+      margin: 0 15px 0 0;
+    }
+    label {
+      @include hidden();
+    }
+  }
+  &__linked {
+    &:after {
+      @include icon(icn-linkbox);
+    }
+
+  }
+
+  &__git {
+    &:after {
+      @include icon('icn-gitbox');
+    }
+
   }
 }

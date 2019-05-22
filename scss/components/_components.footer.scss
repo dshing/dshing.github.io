@@ -1,5 +1,8 @@
 .main-footer {
   background-color: $mineshaft;
+
+  position: relative;
+  z-index: 10;
   hr {
     border-color: $darkerblue;
   }
